@@ -156,8 +156,10 @@ class user {
   getProjects() {
     return this.noOfProjects;
   }
-  changeName() {
-    return this.name;
+  changeName(newName) {
+    let previousName = this.name;
+    this.name = newName;
+    return previousName;
   }
   incrementProjects(value = 1) {
     this.noOfProjects = this.noOfProjects + value;
@@ -176,10 +178,18 @@ console.group(user1.name);
 console.log(user1.name);
 console.log(`id`, user1.id);
 console.log(`number of projects`, user1.noOfProjects);
+console.log(user1.incrementProjects(50));
+console.log(user1.decrementProjects());
+console.log(user1.changeName(`Snow White`));
+console.log(user1.name);
 console.groupEnd();
 
 console.group(user2.name);
 console.log(user2.name);
 console.log(`id`, user2.id);
 console.log(`number of projects`, user2.noOfProjects);
+console.log(user2.incrementProjects());
+console.log(user2.incrementProjects());
+console.log(user2.changeName(`Tyrian`));
+console.log(user2.name);
 console.groupEnd();
