@@ -1,7 +1,27 @@
 // 1. Create a function `createUser` that accepts `name` and `age` and returns a new object with those properties.
+// function createUser(name, age) {
+//   let user = {};
+//   user.name = name;
+//   user.age = age;
+//   return user;
+// }
+// let person1 = createUser(`Arya`, 20);
+// let person2 = createUser(`Lovekush`, 23);
 
 // 2. Add a method named `sayHello` inside the object created above. When called it should alert `Welcome {user}`. Replace `{user}` with the name of the user.
 
+function createUser(name, age) {
+  let user = {};
+  user.name = name;
+  user.age = age;
+  user.sayHello = function (name) {
+    user.name = name;
+    alert(`Welcome  ${user.name}`);
+  };
+  return user;
+}
+let person1 = createUser(`Arya`, 20);
+let person2 = createUser(`Lovekush`, 23);
 // 3. Use the data (name, age) of two different person to create the object using `createUser`. Store the returned value in `personOne` and `personTwo`.
 
 // 4. Change the code inside `createUser` in such a way that the methods `sayHello` doesn't have to be in all object. Use the prototypal nature. (Hint Object.create())
