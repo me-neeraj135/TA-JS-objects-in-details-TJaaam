@@ -51,7 +51,7 @@
 //   description() {
 //     alert(`The square is ${this.width} x ${this.height}`);
 //   }
-//   claArea() {
+//   calcArea() {
 //     let sqr = this.height * this.width;
 //     return `Area of the square is ${sqr} ㎡`;
 //   }
@@ -79,36 +79,50 @@
 //   get area() {
 //     return this.height * this.width;
 //   }
+//   set area(value) {
+//     this.width = Math.sqrt(value);
+//     this.height = Math.sqrt(value);
+//   }
 // }
 
 // let side = new Square(6);
 
 // - Create a static method named `isEqual` which accepts two square instance (when you create a new object using the class). If the area of both square is same the method should return `true` or `false`. (Static methods are called directly on the class not in the instance)
 
-// class Square {
-//   constructor(value) {
-//     this.width = value;
-//     this.height = value;
-//   }
+class Square {
+  constructor(value) {
+    this.width = value;
+    this.height = value;
+    this.numberOfTime = 0;
+  }
 
-//   static isEqual(side1, side2) {
-//     return side1.area === side2.area;
-//   }
-//   description() {
-//     alert(`The square is ${this.width} x ${this.height}`);
-//   }
-//   claArea() {
-//     this._area = this.height * this.width;
-//     return `Area of the square is ${this.area} ㎡`;
-//   }
-//   get area() {
-//     return this.height * this.width;
-//   }
-// }
+  description() {
+    alert(`The square is ${this.width} x ${this.height}`);
+  }
+  claArea() {
+    this._area = this.height * this.width;
+    return `Area of the square is ${this.area} ㎡`;
+  }
+  get area() {
+    this.numberOfTime++;
+    if (this.numberOfTime >= 4) {
+      alert(`Upper limit reached`);
+    } else {
+      return this.height * this.width;
+    }
+  }
+  set area(value) {
+    this.width = Math.sqrt(value);
+    this.height = Math.sqrt(value);
+  }
+  static isEqual(a, b) {
+    return a.area === b.area;
+  }
+}
 
 // - Create two instance of the `Square` class (ex: `let s1 = new Square(6);`)
-// let side1 = new Square(4);
-// let side2 = new Square(4);
+let side1 = new Square(4);
+let side2 = new Square(40);
 
 // - Check the `area` getter method on both square.
 // side1.area;
@@ -130,37 +144,63 @@
 //     this.lastName = ln;
 //   }
 //   get fullName() {
-//     return this.firstName + ` ` + this.lastName;
+//     return `${this.firstName} ${this.lastName}`;
 //   }
 // }
 
 // let person = new User(`Arya`, `Stark`);
 // - Create a `fullName` setter method that will accept full name parameter of the person. It will update the `firstName` and `lastName` based on the input. (Say if the user passed `Arya Stark` it will update the `firstName` to `Arya` and `lastName` to `Stark`. It will also change one condition if the length of the name passed is less than 5 characters it will alert a message saying `Full name should be more than 5 characters`)
+// class User {
+//   constructor(fn, ln) {
+//     this.firstName = fn;
+//     this.lastName = ln;
+//   }
+
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+//   set fullName(name) {
+//     if (name.length < 5) {
+//       alert(`Full name should be more than 5 characters`);
+//     } else {
+//     }
+//     let fullName = name.split(` `);
+//     this.firstName = fullName[0];
+//     this.lastName = fullName[1];
+//   }
+// }
+
+// let person = new User(`Joy`);
+// - Create a method named `nameContains` which will accept string and will return `true` or `false` based on if the name of the user contains the text that passed by user.
+
 class User {
   constructor(fn, ln) {
     this.firstName = fn;
     this.lastName = ln;
   }
-  set fullName(value) {
-    this._fullName = value.split(` `);
 
-    if (this._fullName.length < 5) {
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  set fullName(name) {
+    if (name.length < 5) {
       alert(`Full name should be more than 5 characters`);
     } else {
-      this.firstName = this._fullName[0];
-      this.lastName = this._fullName[1];
     }
+    let fullName = name.split(` `);
+    this.firstName = fullName[0];
+    this.lastName = fullName[1];
   }
-  get fullName() {
-    return this._fullName;
+  nameContains(str) {
+    return `${this.firstName} ${this.lastName}`.includes(str);
   }
 }
 
-let person = new User(`Joy`);
-// - Create a method named `nameContains` which will accept string and will return `true` or `false` based on if the name of the user contains the text that passed by user.
+let person = new User(`Joy`, `Harry`);
 
 // - Create two instance of the `User` class
-
+let person1 = new User(`Joy`, `Harry`);
+let person2 = new User(`Johnny`, `Deep`);
 // - Check by using the `fullName` setter method with name bigger than 5 characters.
 
 // - Check by using the `fullName` setter method with name less than 5 characters.
