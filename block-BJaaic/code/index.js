@@ -51,8 +51,7 @@ let catMethods = {
   },
 };
 
-Object.setPrototypeOf(dogMethods, animalMethods);
-Object.setPrototypeOf(catMethods, animalMethods);
+// Object.setPrototypeOf(catMethods, animalMethods);
 
 function creatAnimal(location, legs) {
   let animal = Object.create(animalMethods);
@@ -64,26 +63,30 @@ function creatAnimal(location, legs) {
 // dog
 
 function createDog(location, legs, name, color) {
-  let animal = Object.create(dogMethods);
-  animal.location = location;
-  animal.numberOfLegs = legs;
+  let animal = creatAnimal(location, legs);
+  Object.setPrototypeOf(animal, dogMethods);
+  //   animal.location = location;
+  //   animal.numberOfLegs = legs;
   animal.name = name;
   animal.color = color;
   return animal;
 }
+Object.setPrototypeOf(dogMethods, animalMethods);
 
 // cat
 
 function createCat(location, legs, name, color) {
-  let animal = Object.create(catMethods);
-  animal.location = location;
-  animal.numberOfLegs = legs;
+  let animal = creatAnimal(location, legs);
+  Object.setPrototypeOf(animal, catMethods);
+  //   animal.location = location;
+  //   animal.numberOfLegs = legs;
   animal.name = name;
   animal.colorOfEyes = color;
   return animal;
 }
+Object.setPrototypeOf(catMethods, animalMethods);
 
-let animals = creatAnimal(`Ny`, 4);
+let animals = creatAnimal(`Ny`, 6);
 let dog = createDog(`France`, 4, `Rambo`, `Brown`);
 let cat = createCat(`Denmark`, 4, `Julie`, `blue`);
 
