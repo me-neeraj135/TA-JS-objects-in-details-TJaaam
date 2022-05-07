@@ -4,7 +4,7 @@ Convert the below requirements into inheritance using prototypal patters.
 
 #### Animal
 
-Properties:
+Properties: 
 
 - `location`
 - `numberOfLegs`
