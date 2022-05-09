@@ -21,7 +21,7 @@ Create a function `personFromPersonStore` that takes as input a `name` and an `a
 
 #### Challenge 3/3
 
-Without editing the code you've already written, add an `introduce` method to the `personStore` object that logs "Hi, my name is [name]".
+Without editing the code you've already written, add an `introduce` method to the `personStore` object that logs "Hi, my name is [name]".=
 
 ## Using the NEW keyword
 
