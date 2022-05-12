@@ -1,45 +1,56 @@
 // book
-let books = data;
 
 class Book {
-  constructor(books) {
-    this.title = books.title;
-    this.category = books.category;
-    this.isRead = books.isRead;
-    this.finishedDate = books.finishedDate;
+  constructor(title, author, category) {
+    this.title = title;
+    this.category = category;
+    this.author = author;
+    this.isRead = false;
+    this.finishedDate = null;
   }
   markBookAsRead() {
-    this.isRead = !this.isRead;
-    this.finishedDate = new Date();
+    this.isRead = true;
+    this.finishedDate = Date.now();
   }
 }
 
 // book-list
 
-class BookList extends Book {
-  constructor(books, currentReadBookIndex) {
-    super(books);
-    this.arrOfBook = books;
-    this.currentReadBookIndex = currentReadBookIndex;
+class BookList {
+  constructor() {
+    this.books = [];
+    this.currentReadBookIndex = 0;
   }
-  add(book) {
-    this.arrOfBook.push(book);
-    return this.arrOfBook;
+  add(arr) {
+    this.books = this.books.concat(arr);
+    return this.books;
   }
   getCurrentBook() {
-    return this.arrOfBook[this.currentReadBookIndex];
+    return this.books[this.currentReadBookIndex];
   }
   getNextBook() {
     this.currentReadBookIndex = this.currentReadBookIndex + 1;
-    return this.arrOfBook[this.currentReadBookIndex];
+    return this.books[this.currentReadBookIndex];
   }
   getPrevBook() {
     this.currentReadBookIndex = this.currentReadBookIndex - 1;
-    return this.currentReadBookIndex;
+    return this.books[this.currentReadBookIndex];
   }
   changeCurrentBook(index) {
-    return (this.currentReadBookIndex = index);
+    this.currentReadBookIndex = index;
+    return this.books[this.currentReadBookIndex];
   }
 }
 
-let copy = new Book(books);
+let book1 = new Book(
+  `The Story Of My Experiments With The Truth`,
+  `Mahatma Gandhi`,
+  `Bio`
+);
+let book2 = new Book(`The Guide`, ` R.K. Narayan`, `Fictional`);
+let book3 = new Book(`A Fine Balance`, `Rohinton Mistry`, `Novel`);
+let book4 = new Book(`The Interpreter Of Maladies`, `Jhumpa Lahiri`, `Story`);
+let book5 = new Book(`A Suitable Boy`, `Vikram Seth`, `Novel`);
+
+let library = new BookList();
+library.add([book1, book2, book3, book4, book5]);
