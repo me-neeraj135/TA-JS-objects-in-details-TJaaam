@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(47, 40, 80);
+}
+.container {
+  width: 50%;
+  margin: 5rem auto;
+  background-color: white;
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #3a3a68;
+  }
+  label {
+    color: rgb(65, 65, 110);
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  input {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+  }
+}
+input:last-child {
+  background-color: rgb(64, 48, 107);
+  color: white;
+}
+.container {
+  .data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    h2 {
+      text-transform: capitalize;
+      font-weight: 700;
+    }
+  }
+}
+.books {
+  li {
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    padding: 1rem;
+  }
+}
