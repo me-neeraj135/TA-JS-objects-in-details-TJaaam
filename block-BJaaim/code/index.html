@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="./stylesheet/style.css" />
   </head>
   <body>
-    <div class="main-div">
-      <div class="inner-div">
-        <h1>question here</h1>
-        <ul class="root"></ul>
-        <button class="submit btn">submit</button>
-        <button class="next btn">next</button>
-        <div class="scoreArea">
-          <h2>answer is correct.</h2>
-          <h3>your score is:</h3>
-        </div>
+    <header>
+      <div class="container heading-div">
+        <h1>JS Quiz</h1>
+        <p></p>
       </div>
-    </div>
-    <script src="./data.json"></script>
+    </header>
+    <div class="main-div container"></div>
+    <footer class="container">
+      <button class="prev">previous</button>
+      <button class="next">next</button>
+      <button style="font-size: 1rem" class="show-result">🎁 you score</button>
+    </footer>
     <script src="./data.js"></script>
     <script src="./index.js"></script>
   </body>
